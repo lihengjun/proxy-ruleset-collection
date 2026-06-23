@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - CDN Domains
-# Last Updated: 2026-06-19T10:26:43.718Z
-# Size: 4507
+# Last Updated: 2026-06-23T01:34:58.598Z
+# Size: 4514
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -849,6 +849,7 @@ static.plus.net
 +.ipfs.mttk.net
 +.loli.net
 texture.laby.net
+cdn1.espn.net
 static1.e621.net
 +.c-dn.net
 static.blip.net
@@ -1085,6 +1086,8 @@ img.washingtonpost.com
 +.warnermediacdn.com
 static.global.visioncritical.com
 static.na1.visioncritical.com
+stories.usestoryteller.com
++.cdn.usestoryteller.com
 +.trafficdeposit.com
 media.telanganatoday.com
 image.telanganatoday.com
@@ -1816,6 +1819,7 @@ assets.dictionary.com
 +.descopecdn.com
 cdn.delight-vr.com
 static.websites.data-crypt.com
++.cursor-cdn.com
 static-beta.curseforge.com
 images.crunchbase.com
 cdn.conveythis.com
@@ -2109,6 +2113,7 @@ assets.endorsely.com
 static.assets-stash.eet-china.com
 +.design-system.economist.com
 marber-cdn.economist.com
+wall-ui-cdn.p.aws.economist.com
 cmp-cdn.p.aws.economist.com
 +.dummyjson.com
 +.dubassets.com
@@ -2662,6 +2667,7 @@ www.pngmart.com
 cdn-main.plus500.com
 cdn.plus500.com
 cdn.pixabay.com
+assets.pingone.com
 static.pingcap.com
 +.phprcdn.com
 hawky.pcgamer.com
@@ -3561,6 +3567,7 @@ cms-cdn.goat.com
 assets.goat.com
 image.goat.com
 +.fsdn.com
+digitalhub.fifa.com
 img04.en25.com
 images.dmca.com
 website-media.deel.com
