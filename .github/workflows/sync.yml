@@ -36,6 +36,28 @@ jobs:
           rm -rf /tmp/metacubex/.git
           mv /tmp/metacubex metacubex
 
+      - name: Sync MetaCubeX/meta-rules-dat geosite classical subset (meta branch)
+        # mesh-platform 规则面板 1b (2026-09-08): 只拉 geosite-categories.txt 列出的类别, 文本形态
+        # classical/<cat>.list (Surge RULE-SET 直用) + classical/<cat>.yaml (Clash classical provider 直用).
+        # 上一步 rm -rf metacubex 后重建, 故本步必须排在 release 同步之后.
+        run: |
+          set -e
+          rm -rf /tmp/mrd-meta
+          git clone --filter=blob:none --sparse --depth=1 --branch=meta https://github.com/MetaCubeX/meta-rules-dat.git /tmp/mrd-meta
+          git -C /tmp/mrd-meta sparse-checkout set geo/geosite/classical
+          mkdir -p metacubex/geo/geosite/classical
+          missing=0
+          while read -r cat; do
+            [[ -z "$cat" || "$cat" == \#* ]] && continue
+            for ext in list yaml; do
+              src="/tmp/mrd-meta/geo/geosite/classical/$cat.$ext"
+              if [[ ! -f "$src" ]]; then echo "::error::missing upstream $cat.$ext"; missing=1; continue; fi
+              cp "$src" "metacubex/geo/geosite/classical/$cat.$ext"
+            done
+          done < geosite-categories.txt
+          [[ "$missing" == 0 ]] || exit 1
+          echo "geosite classical subset: $(ls metacubex/geo/geosite/classical | wc -l) files"
+
       - name: Sync Hackl0us/GeoIP2-CN (release)
         run: |
           set -e
